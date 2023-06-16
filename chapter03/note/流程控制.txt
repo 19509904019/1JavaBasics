@@ -1,0 +1,513 @@
+（1）分支结构1：if-else条件判断结构
+
+格式1：
+	if(条件表达式){
+		语句块;
+	}
+
+格式2：
+	if(条件表达式){
+		语句块1;
+	}else{
+		语句块2;
+	}
+
+格式3：
+	if(条件表达式1){
+		语句块1;
+	}else if(条件表达式2){
+		语句块2;
+	}else if(条件表达式3){
+		语句块3;
+	}else{
+		语句块4;
+	}
+
+例：
+	class IfElseExer{
+		public static void main(String[] args){
+			double score = 75;
+			if (score == 100){
+				System.out.println("奖励一辆跑车");
+			}else if (score <= 100 and score > 80){
+				System.out.println("奖励一辆自行车");
+			}else if (score <= 80 and score > 60){
+				System.out.println("奖励一日游");
+			}else{
+				System.out,println("训一顿");
+			}
+		}
+	}
+结论：
+如果多个条件表达式之间没有交集（互斥关系），则哪个条件表达式声明在上面或者在下面都可以
+如果多个条件表达式之间是包含关系，则需要将范围小的条件表达式声明在范围大的条件表达式的上面
+
+
+int num1,num2,num3;
+
+if (num1 > num2){
+	if (num1 > num3){
+		if (num2 > num3){
+		System.out.println(num3 + "," + num2 + "," + num1);
+		}else{
+		System.out.println(num2 + "," + num3 + "," + num1);
+		}
+	}else{
+		System.out.println(num2 + "," + num1 + "," + num3);
+	}
+}else if(num2 > num1){	
+	if (num2 > num3){
+			if (num1 > num3){
+			System.out.println(num3 +  "," + num1 + "," + num2);
+			}else{
+			System.out.println(num1 + "," + num3 + "," + num2);
+			}
+		}else{
+			System.out.println(num1 + "," + num2 + "," + num3);
+		}
+}
+1.从开发经验上讲，没有写过超过三层的嵌套if-else结构
+2.如果if-else中的执行语句块中只有一行执行语句，则此执行语句所在的一对{}可以省略，但不建议省略。
+
+
+（2）如何从键盘获取不同类型（基本数据类型、String类型）的变量：使用Scanner类
+	
+	1.使用Scanner获取不同类型数据的步骤
+		步骤1：导包import java.util.Scanner
+		步骤2：提供（或创建）一个Scanner类的实例
+		步骤3：调用Scanner类中的方法，获取指定类型的变量
+		步骤4：关闭资源，调用Scanner类的close()
+	
+	例：	
+		// 步骤1：导包import java.util.Scanner
+		import java.util.Scanner;
+		class ScannerTest{
+			public static void main(String[] args){
+				//步骤2：提供（或创建）一个Scanner类的实例
+				Scanner scan = new Scanner(System.in);
+
+				//步骤3：调用Scanner类中的方法，获取指定类型的变量
+				System.out.print("请输入网名：");
+				String name = scan.next();
+
+				System.out.print("请输入年龄");
+				int age = scan.nextInt();
+
+				System.out.print("请输入体重：");
+				double weight = scan.nextDouble();
+
+				System.out.print("是否单身：(true/false)");
+				boolean isSingle = scan.nextBoolean();
+
+				System.out.print("请输入性别：");
+				char gender = scan.next().charAt(0);
+			}
+		}
+
+	2.Scanner类中提供了获取byte、short、int、long、float、double、boolean、String类型变量的方法
+	注意：没有提供获取char类型变量的方法，需要使用next().charAt(0)
+
+（3）如何获取一个随机数
+
+1.可以使用Java提供的API：Math类的random()
+2.random()调用以后，会返回一个[0.0,1.0)范围的double型的随机数
+	需求：获取一个[a,b]范围的随机整数？
+		int ran = (int)(Math.random() * (b-a+1) + a)
+
+
+（4）分支结构之switch-case的使用
+	
+1.语法格式
+switch(表达式){
+	case 常量1:
+		执行语句1;
+		break;
+	case 常量2:
+		执行语句2;
+		break;
+		.
+		. 
+		.
+	default:
+		执行语句n;
+		break;
+}
+
+2.执行过程：
+根据表达式中的值，依次匹配case语句。一旦与某一个case中的常量相等，那么就执行此case中的执行语句。
+执行完此执行语句之后，遇到break则跳出switch-case结构，否则会继续执行后面语句。
+
+3.说明：
+	①switch中的表达式只能是特定的数据类型。 byte、short、char、int、枚举、String
+	②case后都是跟的常量，使用表达式与这些常量做相等的判断
+	③开发中，使用switch-case时，通常case匹配的情况都有限
+	④break:可以使用在switch-case中，一旦执行此break关键字，就跳出当前的switch-case结构
+	⑤default：类似于if-else中的else结构，default是可选的，而且位置是灵活的
+
+4.switch-case 与 if-else 之间的转换
+	①开发中凡是可以使用switch-case结构的场景，都可以改写为if-else。反之不成立
+	②开发中，如果一个具体问题既可以使用switch-case也可以使用if-else，推荐使用switch-case
+	 switch-case相较于if-else效率较高
+
+（5）分支结构之循环结构
+1.Java中规范了3种循环结构：for、while、do-while
+2.凡是循环结构，就一定会有4个要素：
+	①初始化条件
+	②循环条件
+	③循环体
+	④迭代部分
+
+3.for循环的格式
+for(1 ;2 ;3){
+	4
+}
+执行过程：1-->2-->4-->3
+
+
+例：
+
+/*
+输入两个数，求其最大公约数和最小公倍数
+如：12和20
+
+最大公约数：
+12：1，2，3，4，6，12
+20：1，2，4，5，10，20
+
+最小公倍数：
+12：12，24，36，48，60...
+20:20，40，60，80...
+*/
+import java.util.Scanner;
+
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		//键盘输入两个整数
+		Scanner input = new Scanner(System.in);
+		System.out.print("请输入第一个数：");
+		int num1 = input.nextInt();
+		System.out.print("请输入第二个数：");
+		int num2 = input.nextInt();
+
+		//最大公约数包含在相对较小的数里面
+		int min = (num1 < num2) ? num1:num2;
+
+		//找最大的公约数从大到小的方向开始找
+		for(int i = min; i >= 1; i--){
+			if(num1 % i == 0 && num2 % i == 0){
+				System.out.println("最大公约数为：" + i);
+				break;
+			}
+		}
+		//最小公倍数包含在最大的数里面
+		int max = (num1 < num2) ? num2 : num1;
+		
+		//找最小的公倍数从小到大的方向开始找,最大公倍数成倍增加
+		for(int j = max; j <= num1 * num2; j += max){
+			if(j % num1 == 0 && j % num2 == 0){
+				System.out.println("最小公倍数为：" + j);
+				break;
+			}
+		}
+		
+	}
+}
+
+
+4.while 循环
+	
+	格式：
+
+	①
+	while(②){
+		③
+		④
+	}
+
+	执行过程：① --> ② --> ③ --> ④
+
+for循环和while循环可以相互转换！
+
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		int i = 1;
+		int count = 0;
+		int total = 0;
+		while(i <= 100){
+			if (i % 2 == 0){
+				System.out.println(i);
+				count ++;
+				total += i;
+			}
+			i++;
+		}
+		System.out.println("100以内的偶数个数为：" + count);
+		System.out.println("100以内的偶数和为：" + total);
+	}
+}
+
+for循环和while循环的小区别：初始化条件的作用域范围不同。while循环中的初始化条件在while循环结束后依然有效
+/*
+输入两个数，求其最大公约数和最小公倍数
+如：12和20
+
+最大公约数：
+12：1，2，3，4，6，12
+20：1，2，4，5，10，20
+
+最小公倍数：
+12：12，24，36，48，60...
+20:20，40，60，80...
+*/
+import java.util.Scanner;
+
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+		// 输入两个数
+		System.out.print("请输入第一个数：");
+		int num1 = input.nextInt();
+		System.out.print("请输入第二个数：");
+		int num2 = input.nextInt();
+
+		//最大公约数
+		int min = (num1 < num2) ? num1 : num2;
+		int i = min;
+		while(i >= 1){
+			if (num1 % i == 0 && num2 % i == 0){
+				System.out.println("最大公约数为：" + i);
+				break;
+			}
+			i--;
+		}
+
+		//最小公倍数
+		int max = (num1 < num2) ? num2 : num1;
+		int j = max;
+		while(j <= num1 * num2){
+			if (j % num1 == 0 && j % num2 == 0){
+				System.out.println("最小公倍数为：" + j);
+				break;
+			}
+			j += max;
+		}
+
+	}
+}
+
+
+/*
+随机生成一个10以内的整数，猜这个随机数是多少
+*/
+import java.util.Scanner;
+
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		//生成随机数
+		int ran = (int)(Math.random() * 101);
+		int count = 0;
+		
+		//进入循环
+		while (true){
+			//从键盘上输入一个整数
+			Scanner input = new Scanner(System.in);
+			System.out.print("请输入一个整数：");
+			int num = input.nextInt();
+			//判断条件
+			if (ran > num){
+				System.out.println("猜的数小了！");
+				count++;
+			} else if(ran < num){
+				System.out.println("猜的数大了！");
+				count++;
+			}else{
+				System.out.println("答对了！");
+				count++;
+				input.close();
+				break;
+			}
+		}
+		System.out.println("您一共猜了" + count + "次");
+	}
+}
+
+
+5.do-while循环
+
+①
+do{
+    ③
+    ④
+}while(②);
+
+执行过程：① --> ③ --> ④ --> ②
+
+1）do-while循环至少执行一次循环体，即先执行一遍在进行条件判断
+2）for、while、do-while循环三者之间是可以相互转换的 
+3）do-while循环结构，在开发中相较于for、while使用的较少
+
+6."无限"循环结构的使用
+
+1）格式：while(true) 或 for(;;)
+2）开发中，有时不确定需要循环多少次，需要根据循环体内部某些条件来控制循环的结束（break）
+3）如果此循环结构不能终止，则构成了死循环，开发中要避免出现死循环
+
+
+7.嵌套循环的使用
+嵌套循环：指一个循环结构A的循环体是另一个循环结构B
+--外层循环：循环结构A
+--内层循环：循环结构B
+
+说明：
+1)内层循环充当了外层循环的循环体
+2)对于两层嵌套循环来说，外层循环控制行数，内层循环控制列数
+3)外层执行m次，内层执行n次，则内层循环体共执行m * n次
+4)实际开发中三层以上for循环不会出现，三层的for循环都很少见
+
+/*
+打印如下菱形：
+        *
+      * * *
+    * * * * *
+  * * * * * * *
+* * * * * * * * *
+  * * * * * * *
+    * * * * *
+      * * *
+        *
+*/
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		//菱形上半部分
+		for (int i=1; i<=5; i++){
+			for (int j=1; j<=10-2*i; j++){
+				System.out.print(" ");
+			}
+			for(int k=1; k<=2*i-1;k++){
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+
+		//菱形下半部分
+		for (int m=1; m<=4; m++){
+			for(int n=1; n<=2*m; n++){
+				System.out.print(" ");
+			}
+			for(int l=1; l<=9-2*m; l++){
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+/*
+打印乘法表：
+1*1=1
+1*2=2   2*2=4
+1*3=3   2*3=6   3*3=9
+1*4=4   2*4=8   3*4=12  4*4=16
+1*5=5   2*5=10  3*5=15  4*5=20  5*5=25
+1*6=6   2*6=12  3*6=18  4*6=24  5*6=30  6*6=36
+1*7=7   2*7=14  3*7=21  4*7=28  5*7=35  6*7=42  7*7=49
+1*8=8   2*8=16  3*8=24  4*8=32  5*8=40  6*8=48  7*8=56  8*8=64
+1*9=9   2*9=18  3*9=27  4*9=36  5*9=45  6*9=54  7*9=63  8*9=72  9*9=81
+*/
+import java.util.Scanner;
+
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		for (int i=1; i<=9; i++){
+			for (int j=1; j<=i; j++){
+				System.out.print(j + "*" + i + "=" + i * j + "\t");
+			}
+		System.out.println();
+		}
+	}
+}
+
+8.break和continue关键字的使用
+相同点：在此关键字后面不能声明执行语句
+不同点：break结束当前循环结构，continue结束当次循环
+开发中，break的使用频率远高于continue
+
+
+/*
+找出100以内所有的素数(质数)
+
+只能被1和它本身整除的自然数。比如：2，3，5，7，11，13，17，19...
+---> 换句话说，从2开始到这个自然数-1为止，不存在此自然数的约数
+*/
+①
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		for (int i = 2; i <= 100; i++){  //遍历100以内的自然数
+			
+			// 记录i的约束的个数（从2开始）
+			int count = 0;
+			//判定i是否为质数
+			for (int j = 2; j < i; j++){
+				if(i % j == 0){
+					count++;
+				}
+			}
+			if (count == 0){
+				System.out.println(i);
+			}
+		}
+	}
+}
+
+
+②
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		for (int i = 2; i <= 100; i++){
+			boolean isFlag = true;
+			for(int j = 2;j < i;j++){
+				if(i % j == 0){
+					isFlag = false;
+				}
+			}
+			if(isFlag){
+				System.out.println(i);
+			}
+
+		}
+	}
+}
+
+③
+设置标签结束外层循环
+class  Test{ 
+	public static void main(String[] args) 
+	{
+		long start = System.currentTimeMillis();
+		int count = 0;
+		label:for (int i = 2; i <= 100000; i++){  // 外层循环添加标签
+			for(int j = 2;j < Math.sqrt(i);j++){
+				if(i % j == 0){
+					continue label;  //结束外层for循环继续下一次循环
+				}
+			}
+			//System.out.println(i);
+			count++;
+		}
+		long end = System.currentTimeMillis();
+		System.out.println(count);
+		System.out.print("花费的时间为：" + (double)(end - start)/1000 + "ms");
+	}
+}
+
+
+
+
