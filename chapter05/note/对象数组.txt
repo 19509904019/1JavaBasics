@@ -1,0 +1,17 @@
+1.什么是对象数组？如何理解？
+    数组的元素可以是基本数据类型，也可以是引用数据类型，当元素是引用类型中的类时，称为对象数组
+
+public Student{
+    String number;
+    int score;
+    int state;
+}
+
+Student[] students = new Student[20];
+
+for(int i = 0; i < students.length; i++){
+    students[i] = new Student();
+    student[i].number = i + 1;
+    student[i].score = ((int)Math.random() * 101);
+    student[i].state = ((int)Math.random() * 6 + 1);
+}
