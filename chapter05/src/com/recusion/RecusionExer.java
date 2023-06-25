@@ -1,5 +1,7 @@
+package com.recusion;
+
 /**
- * ClassName:RecusionExer
+ * ClassName:com.recusion.RecusionExer
  * Description:
  *
  * @Author ZY
