@@ -36,7 +36,7 @@ public class Customer {
         return account;
     }
 
-    public void setAccount(Account a) {
-        account = a;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
