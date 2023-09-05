@@ -1,5 +1,4 @@
-package com.atguigu02.project.model;
-
+package com._this.exer5;
 
 import java.util.Scanner;
 
