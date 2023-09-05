@@ -168,12 +168,9 @@ public class CustomerView {
             Customer[] custs = customerList.getAllCustomer();
             for (int i = 0; i < custs.length; i++) {
                 System.out.println((i + 1) + "\t" + custs[i].getInfo());
-
             }
         }
     }
-
-
     public static void main(String[] args) {
         CustomerView customerView = new CustomerView();
         customerView.enterMainMenu();
