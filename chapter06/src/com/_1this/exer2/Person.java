@@ -1,4 +1,4 @@
-package com._this.exer2;
+package com._1this.exer2;
 
 /**
  * ClassName: Person
