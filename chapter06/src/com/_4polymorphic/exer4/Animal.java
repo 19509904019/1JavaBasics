@@ -1,18 +1,14 @@
-package com._4polymorphic;
+package com._4polymorphic.exer4;
 
 /**
- * ClassName:Person
+ * ClassName:Animal
  * Description:
  *
  * @Author ZY
- * @Create 2023/9/6 21:03
+ * @Create 2023/9/7 11:56
  * @Version 1.0
  */
-public class Person {
-    String name;
-    int age;
-    int id = 1001;
-
+public class Animal {
     public void eat(){
         System.out.println("吃饭");
     }

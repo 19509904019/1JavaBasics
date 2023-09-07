@@ -1,4 +1,4 @@
-package com._4polymorphic;
+package com._4polymorphic.exer1;
 
 /**
  * ClassName:PersonTest

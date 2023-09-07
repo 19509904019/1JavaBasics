@@ -1,0 +1,69 @@
+1. Object类的说明
+    > 明确 java.lang.Object
+    > 任何一个Java类(除Object类)都直接或间接的继承于Object类
+    > Object类称为Java类的根父类
+    > Object类中声明的结构（属性、方法等）就具有通用性
+        > Object类中没有声明属性
+        > Object类中提供了空参的构造器
+        > 重点关注：Object类中声明的方法
+
+2.常用方法
+    重点方法：equals() / toString()
+    了解方法：clone() / finalize()
+    目前不需要关注：getClass() / hashCode() / notify() / notifyAll()
+                    wait() / wait(xx) / wait(xx, yy)
+
+3.equals()的使用
+
+    3.1 适用性： 任何引用数据类型都可以使用
+
+    3.2 java.lang.Object类中equals()的定义：
+    public boolean equals(Object obj){
+        return (this == obj);
+    }
+
+    3.3 子类使用说明：
+        > 自定义的类在没有重写Object中equals()方法的情况下，调用的就是Object类中声明
+          的equals()，比较两个对象的引用地址是否相同。（或比较两个对象是否指向了堆空间
+          中同一个对象实体）
+
+        > 对于像String、File、Date和包装类等，他们都重写了Object类中的equals方法，用于
+          比较两个对象实体内容是否相等
+
+    3.4 开发中使用说明
+    > 实际开发中，针对于自定义的类，常常会判断两个对象是否equals(),而此时主要是判断对象的属性
+      值是否相等。所以需要重写Object类中的equals()方法
+    > 如何重写
+        ①手动实现  ②IDEA自动生成 √
+
+    3.5 高频面试题  区分 "==" 和 equals()
+        ==: 运算符
+            ① 使用范围： 基本数据类型、引用数据类型
+            ②基本数据类型：判断数据值是否相等
+              引用数据类型：判断两个引用变量指向的地址是否相同
+                        （或比较两个引用是否指向同一个对象实体）
+
+        equals():方法
+            ①使用范围：只能引用数据类型使用
+            具体使用：对于类来说，重写equals()和不重写equals()的区别
+
+4. toString()的使用
+
+    4.1 Object类中toString()的定义：
+        public String toString(){
+            return getClass().getName() + "@" + Integer.toHexString(hashCode());
+        }
+
+    4.2 开发中的使用场景
+        > 平时我们在调用System.out.println()打印对象引用变量时，其实就调用了对象的toString()
+
+    4.3 子类使用说明：
+        > 自定义的类，在没有重写Object类的toString()的情况下，默认返回的是当前对象的地址值
+        > 像String、File、Date或包装类等Object的子类，他们都重写了Object类的toString(),在调用toString()时，
+          返回当前对象的实体内容。
+
+    4.4 开发中使用说明：
+        > 习惯上，开发中对于自定义的类在调用toString()时，也希望显示其对象的实体内容，而非地址值。此时就需要重写
+          Object类中的toString()方法。
+
+
