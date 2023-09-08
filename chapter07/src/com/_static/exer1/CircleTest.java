@@ -1,4 +1,4 @@
-package com.apply.exer1;
+package com._static.exer1;
 
 /**
  * ClassName:Circle
