@@ -14,6 +14,7 @@ public class BankTest {
     }
 }
 
+// 饿汉式
 class Bank{
 
     // 1.类的构造器私有化
