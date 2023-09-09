@@ -11,4 +11,89 @@
 3. 如何实现单例模式（掌握）：
 
     > 饿汉式
+    public class BankTest {
+        public static void main(String[] args) {
+
+        }
+    }
+
+    // 饿汉式
+    class Bank {
+
+        // 1.类的构造器私有化
+        private Bank() {
+        }
+
+        // 2.在类的内部创建当前类的实例
+        // 4.此属性也必须声明为static
+        private static Bank instance = new Bank();
+
+        // 3. 使用getXxx()方法获取当前类的实例，必须声明为static
+        public static Bank getInstance() {
+            return instance;
+        }
+
+    }
+
     > 懒汉式
+    public class GirlFriendTest {
+
+        public static void main(String[] args) {
+
+        }
+    }
+
+
+    class GirlFriend{
+        // 1.类的构造器私有化
+        private GirlFriend(){
+
+        }
+
+        // 2.声明当前类的实例
+
+        // 4.此属性也必须声明为static
+        private static GirlFriend instance = null;
+
+
+        // 3.通过getXxx()获取当前类的实例，如果未创建对象，则在方法内部进行创建
+        public static GirlFriend getInstance(){
+            if(instance == null){
+                instance  = new GirlFriend();
+            }
+            return instance;
+        }
+    }
+
+
+4. 对比两种模式（特点、优缺点）
+
+特点：
+    > 饿汉式：“立即加载”，随着类的加载，当前的唯一实例就创建了
+    > 懒汉式：“延迟加载”，在需要使用的时候，进行创建
+
+优缺点：
+    > 饿汉式：（优点）写法简单，由于内存中较早加载，使用更方便、更快，是线程安全的
+            （缺点）内存中占用时间较长
+
+    >懒汉式：（优点） 在需要的时候进行创建，节省内存空间
+            （缺点） 线程不安全
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
