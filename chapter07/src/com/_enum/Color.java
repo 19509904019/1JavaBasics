@@ -46,7 +46,7 @@ public enum Color {
         return description;
     }
 
-    // 提供构造器
+    // 提供构造器，private可以省略
     Color(int red, int green, int blue, String description) {
         this.red = red;
         this.green = green;
