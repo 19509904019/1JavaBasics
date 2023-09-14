@@ -22,7 +22,7 @@ enum Season{
     private final String seasonName;
     private final String seasonDesc;
 
-    // 2.私有化类的构造器
+    // 2.私有化类的构造器,private自动省略
     private Season(String seasonName,String seasonDesc){
         this.seasonName = seasonName;
         this.seasonDesc = seasonDesc;

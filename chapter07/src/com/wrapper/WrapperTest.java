@@ -38,4 +38,15 @@ public class WrapperTest {
         // 自动拆箱： 包装类 ---> 基本数据类型
         int number2 = num;
     }
+
+    @Test
+    public void test3(){
+        String number = 123 +"";
+        String number1 = String.valueOf(123);
+        System.out.println(number.getClass().getSimpleName());
+        System.out.println(number1.getClass().getSimpleName());
+
+        int num = Integer.parseInt(number);
+
+    }
 }

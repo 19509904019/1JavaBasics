@@ -57,6 +57,7 @@ public enum Color {
 
     @Override
     public String toString() {
-        return name() + "(" + red + "," + green + "," + blue + ") ---> " + description;
+//        return super.toString() + "(" + red + "," + green + "," + blue + ") ---> " + description;
+        return super.name() + "(" + red + "," + green + "," + blue + ") ---> " + description;
     }
 }
