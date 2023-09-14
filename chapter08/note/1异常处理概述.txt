@@ -1,0 +1,50 @@
+1. 异常处理的体系结构
+java.lang.Throwable:异常体系的根父类
+    |---java.lang.Error:错误。  Java虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况
+
+    |---java.lang.Exception:异常。  我们可以编写针对性的代码进行处理
+        |---编译时异常：(受检异常)在执行javac.exe命令时，出现异常
+            |----  ClassNotFoundException(找不到指定的类)
+                Class clz = Class.forName("java.lang.String")
+
+            |----  FileNotFoundException(找不到指定的文件)
+
+            |----  IOException:
+                public void test(){
+                    File file = new File("hello.txt");
+
+                    FileInputStream fis = new FileInputStream(file); //可能报FileNotFoundException异常
+
+                    int data = fis.read();  // 可能报IOException
+                    while(data != -1){
+                        System.out.println((char)data);
+                        data = fis.read();  // 可能报IOException
+                    }
+
+                    fis.close();
+                }
+
+
+
+        |---运行时异常：(非受检异常)在执行java.exe命令时，出现异常
+            |----  ArrayIndexOutBoundsException (角标越界)
+            |----  NullPointerException (空指针异常，指向的对象为空)
+                int[][] arr = new int[10][];
+                System.out.println(arr[0][0]);  //报错
+
+            |----  ClassCastException(类型转换不兼容)
+                Object obj = new String();
+                Date date = (Date)obj;
+
+            |----  NumberFormatException(数据格式异常)
+                String str = "abc";
+                int num = Integer.parseInt(str);
+
+            |----  InputMismatchException(输入类型不匹配)
+                Scanner scan = new Scanner(System.in);
+                int num = scan.nextInt();
+                System.out.println(num);  //输入abc等非数字的内容报错
+
+            |----  ArithmeticException(算数异常)
+                int num = 10;
+                System.out.println(num / 0);
