@@ -1,4 +1,4 @@
-package com._1this.exer5;
+package com._1this.project2;
 
 /**
  * ClassName:CustomerView
