@@ -24,37 +24,7 @@ public class NameListService {
     private Employee[] employees;
 
     public NameListService() {
-        // 存储员工信息数组
-        employees = new Employee[Data.EMPLOYEES.length];
 
-        for (int i = 0; i < employees.length; i++) {
-            // 员工类型
-            int type = Integer.parseInt(EMPLOYEES[i][0]);
-
-            // 获取通用的属性
-            int id = Integer.parseInt(EMPLOYEES[i][1]);
-            String name = EMPLOYEES[i][2];
-            int age = Integer.parseInt(EMPLOYEES[i][3]);
-            double salary = Double.parseDouble(EMPLOYEES[i][4]);
-
-
-
-            switch (type) {
-                case EMPLOYEE -> new Employee(id,name,age,salary);
-                case PROGRAMMER -> {
-                    Equipment equipment = createEquipment(i);
-                    new Programmer(id,name,age,salary, equipment);
-                }
-                case DESIGNER -> new Designer();
-                case ARCHITECT -> new Architect();
-            }
-
-        }
-    }
-
-    private Equipment createEquipment(int index){
-        int equipmentType = Integer.parseInt(EQUIPMENTS[index][0]);
-        
     }
 
     public Employee[] getAllEmployees() {
