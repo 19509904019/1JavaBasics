@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: PC
- * Package: domain
+ * ClassName:PC
  * Description:
  *
- * @Create 2023/9/16 17:02
+ * @Author ZY
+ * @Create 2023/9/19 10:48
+ * @Version 1.0
  */
 public class PC implements Equipment {
     private String model;

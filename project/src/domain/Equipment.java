@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: Equipment
- * Package: domain
- * Description:
+ * ClassName:Equipment
+ * Description: 提供设备信息
  *
- * @Create 2023/9/16 16:53
+ * @Author ZY
+ * @Create 2023/9/19 10:43
+ * @Version 1.0
  */
 public interface Equipment {
     String getDescription();

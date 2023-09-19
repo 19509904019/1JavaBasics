@@ -1,51 +1,49 @@
 package view;
 
-import java.util.*;
+import java.util.Scanner;
+
 /**
- * 
- * @Description 项目中提供了TSUtility.java类，可用来方便地实现键盘访问。
  * @author shkstart  Email:shkstart@126.com
- * @version 
+ * @Description 项目中提供了TSUtility.java类，可用来方便地实现键盘访问。
  * @date 2019年2月12日上午12:02:58
- *
  */
 public class TSUtility {
     private static Scanner scanner = new Scanner(System.in);
+
     /**
-     * 
+     * @return
      * @Description 该方法读取键盘，如果用户键入’1’-’4’中的任意字符，则方法返回。返回值为用户键入字符。
      * @author shkstart
      * @date 2019年2月12日上午12:03:30
-     * @return
      */
-	public static char readMenuSelection() {
+    public static char readMenuSelection() {
         char c;
         for (; ; ) {
             String str = readKeyBoard(1, false);
             c = str.charAt(0);
             if (c != '1' && c != '2' &&
-                c != '3' && c != '4') {
+                    c != '3' && c != '4' && c != '5') {
                 System.out.print("选择错误，请重新输入：");
             } else break;
         }
         return c;
     }
-	/**
-	 * 
-	 * @Description 该方法提示并等待，直到用户按回车键后返回。
-	 * @author shkstart
-	 * @date 2019年2月12日上午12:03:50
-	 */
+
+    /**
+     * @Description 该方法提示并等待，直到用户按回车键后返回。
+     * @author shkstart
+     * @date 2019年2月12日上午12:03:50
+     */
     public static void readReturn() {
         System.out.print("按回车键继续...");
         readKeyBoard(100, true);
     }
+
     /**
-     * 
+     * @return
      * @Description 该方法从键盘读取一个长度不超过2位的整数，并将其作为方法的返回值。
      * @author shkstart
      * @date 2019年2月12日上午12:04:04
-     * @return
      */
     public static int readInt() {
         int n;
@@ -60,12 +58,12 @@ public class TSUtility {
         }
         return n;
     }
+
     /**
-     * 
+     * @return
      * @Description 从键盘读取‘Y’或’N’，并将其作为方法的返回值。
      * @author shkstart
      * @date 2019年2月12日上午12:04:45
-     * @return
      */
     public static char readConfirmSelection() {
         char c;

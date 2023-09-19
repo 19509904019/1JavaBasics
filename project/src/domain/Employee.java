@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: Employee
- * Package: domain
- * Description:
+ * ClassName:Employee
+ * Description: 员工基本信息
  *
- * @Create 2023/9/16 16:45
+ * @Author ZY
+ * @Create 2023/9/19 10:40
+ * @Version 1.0
  */
 public class Employee {
     private int id;
@@ -53,5 +54,16 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    protected String getDetails(){
+        return id +"\t" +
+                name + "\t" +
+                age + "\t" +
+                salary;
+    }
+    @Override
+    public String toString() {
+        return getDetails();
     }
 }

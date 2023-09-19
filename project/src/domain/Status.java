@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: Status
- * Package: domain
- * Description:
+ * ClassName:Status
+ * Description: 员工在职状态
  *
- * @Create 2023/9/16 16:52
+ * @Author ZY
+ * @Create 2023/9/19 10:42
+ * @Version 1.0
  */
 public enum Status {
     FREE,BUSY,VOCATION;

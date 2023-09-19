@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: Printer
- * Package: domain
+ * ClassName:Printer
  * Description:
  *
- * @Create 2023/9/16 17:06
+ * @Author ZY
+ * @Create 2023/9/19 10:53
+ * @Version 1.0
  */
 public class Printer implements Equipment {
     private String name;
@@ -34,6 +35,7 @@ public class Printer implements Equipment {
     public void setType(String type) {
         this.type = type;
     }
+
 
     @Override
     public String getDescription() {

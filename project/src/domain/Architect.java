@@ -1,16 +1,18 @@
 package domain;
 
 /**
- * ClassName: Architect
- * Package: domain
- * Description:
+ * ClassName:Architect
+ * Description:架构师
  *
- * @Create 2023/9/16 17:00
+ * @Author ZY
+ * @Create 2023/9/19 10:46
+ * @Version 1.0
  */
-public class Architect extends Designer{
+public class Architect extends Designer {
     private int stock;
 
     public Architect() {
+
     }
 
     public Architect(int id, String name, int age, double salary,
@@ -25,5 +27,16 @@ public class Architect extends Designer{
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    @Override
+    public String toString() {
+        return getDetails() + "\t架构师\t" + getStatus() + "\t" + getBonus()
+                + "\t" + stock + "\t" + getEquipment().getDescription();
+    }
+
+    @Override
+    public String getDetailsForTeam() {
+        return super.getBasicDetailsForTeam() + "架构师\t" + getBonus() + "\t" + getStock();
     }
 }

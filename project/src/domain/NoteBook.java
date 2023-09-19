@@ -1,11 +1,12 @@
 package domain;
 
 /**
- * ClassName: NoteBook
- * Package: domain
+ * ClassName:NoteBook
  * Description:
  *
- * @Create 2023/9/16 17:04
+ * @Author ZY
+ * @Create 2023/9/19 10:51
+ * @Version 1.0
  */
 public class NoteBook implements Equipment {
     private String model;
