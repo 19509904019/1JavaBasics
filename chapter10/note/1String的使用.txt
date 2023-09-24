@@ -41,6 +41,16 @@
     (了解)情况4：concat(xxx):不管是常量调用此方法，还是变量调用，同样不管参数是常量还是变量，总之调用
                            完concat()都返回一个新new的对象
 
+6. String的构造器和常用方法
+    6.1 构造器
+        public String(): 初始化新创建的String对象，以使其表示空字符序列
+        public String(String original): 初始化一个新创建的”String“对象，使其表示一个与参数相同的字符序列
+        public String(char[] value): 通过当前参数中的字符数组来构造新的String
+        public String(char[] value, int offset, int count): 通过字符数组的一部分来构造新的String
+        public String(byte[] bytes): 通过使用平台的”默认字符集“解码当前参数中的字节数组来构造新的String
+        public String(byte[] bytes, String charsetName):通过使用指定的字符集解码当前参数中的字节数组来构造新的String
+
+
 
 
 
