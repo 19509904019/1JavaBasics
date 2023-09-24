@@ -51,6 +51,35 @@
         public String(byte[] bytes, String charsetName):通过使用指定的字符集解码当前参数中的字节数组来构造新的String
 
 
+    6.2 常用方法
+        (1) boolean isEmpty():字符串是否为空
+        (2) int length():返回字符串的长度
+        (3) String concat(xx):拼接
+        (4) boolean equals(Object obj):比较字符串是否相等，区分大小写
+        (5) boolean equalsIgnoreCase(Object obj):比较字符串是否相等，不区分大小写
+        (6) int compareTo(String other):比较字符串大小，区分大小写，按照Unicode编码值比较大小
+        (7) int compareToIgnoreCase(String other):比较字符串大小，不区分大小写
+        (8) String toLowerCase():将字符串中大写字母转为小写
+        (9) String toUpperCase():将字符串中小写字母转为大写
+        (10) String trim():去掉字符串前后空白符
+        (11) public String intern():结果在常量池中共享
+        (12) boolean contains(xx): 是否包含xx
+        (13) int indexOf(xx): 从前往后查找当前字符串中xx,即如果有返回第一次出现的下标，要是没有返回-1
+        (14) int indexOf(String str, int fromIndex):返回指定子字符串在此字符串中第一次出现处的索引
+        (15) int lastIndexOf(xx):从后往前查找当前字符串中xx,即如果有返回第一次出现的下标，要是没有返回-1
+        (16) int lastIndexOf(String str, int fromIndex):返回指定子字符串在此字符串中最后一次出现处的索引
+        (17) String substring(int beginIndex):返回一个新的字符串，它是此字符串的从beginIndex开始截取的
+        (18) String substring(int beginIndex， int endIndex):返回一个新的字符串，它是此字符串的从beginIndex开始截取，endIndex结束
+        (19) char charAt(index):返回[index]位置的字符
+        (20) static String valueOf(char[] data):返回指定数组中表示该字符序列的String
+        (21) static String valueOf(char[] data, int offset, int count):返回指定数组中表示该字符序列的String
+        (22) static String copyValueOf(char[] data):返回指定数组中表示该字符序列的String
+        (23) static String copyValueOf(char[] data, int offset, int count):返回指定数组中表示该字符序列的String
+        (24) boolean startWith(xx):测试此字符串是否以指定的前缀开始
+        (25) boolean startWith(String prefix, int toffset):测试此字符串从指定索引开始的子字符串是否以指定前缀开始
+        (26) boolean endsWith(xx):测试此字符串是否以指定的后缀结束
+
+
 
 
 
