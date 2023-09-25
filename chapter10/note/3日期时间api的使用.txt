@@ -9,7 +9,7 @@
           > 两个构造器
           > 两个方法的使用：①toString()   ②getTime()
 
-     ② java.sql.Date:对应着数据库中的date类型
+     ② java.sql.Date:对应着数据库中的date类型,新建构造器是需要放入时间戳，其打印出来的格式为 2023-9-25
 
      3.SimpleFormatDate类
         格式化：日期 ---> 字符串
