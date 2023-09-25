@@ -1,4 +1,4 @@
-package exer1;
+package com.string.exer1;
 
 import org.junit.Test;
 

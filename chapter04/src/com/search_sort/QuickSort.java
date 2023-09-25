@@ -30,11 +30,11 @@ public class QuickSort {
     }
 
     // 快速排序：递归
-    public void Quicksort(int[] arr, int low, int high) {
+    public void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int position = Partition(arr, low, high);
-            Quicksort(arr, low, position - 1);
-            Quicksort(arr, position + 1, high);
+            quickSort(arr, low, position - 1);
+            quickSort(arr, position + 1, high);
         }
     }
 
@@ -45,8 +45,8 @@ public class QuickSort {
         int low = 0;
         int high = arr.length - 1;
         // 进行排序
-        QuickSort quicksort = new QuickSort(); // 创建对象的类名必须和文件名一致
-        quicksort.Quicksort(arr, low, high);
+        QuickSort qs = new QuickSort(); // 创建对象的类名必须和文件名一致
+        qs.quickSort(arr, low, high);
         System.out.println(Arrays.toString(arr)); // 输出数组
     }
 }
