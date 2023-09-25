@@ -1,0 +1,23 @@
+一、jdk8之前的API：
+    1.System类的currentTimeMillis()
+        > 获取当前时间对应的毫秒数，long类型，时间戳
+        > 当前时间与1970年1月1日0时0分0秒之间的毫秒数
+        > 常用来计算时间差
+
+    2.两个Date类
+     ① java.util.Date
+          > 两个构造器
+          > 两个方法的使用：①toString()   ②getTime()
+
+     ② java.sql.Date:对应着数据库中的date类型
+
+     3.SimpleFormatDate类
+        格式化：日期 ---> 字符串
+        解析：字符串 ---> 日期
+
+     4.Calendar:日历类
+      ①实例化 由于Calendar是一个抽象类，所以我们需要创建其子类的实例。这里我们通过Calendar的静态
+              方法getInstance()即可获取
+
+         常用方法：get(int field) / set(int field, xx) / add(int field, xx)
+                  getTime() / setTime()
