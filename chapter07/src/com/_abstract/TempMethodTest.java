@@ -12,10 +12,7 @@ public class TempMethodTest {
     public static void main(String[] args) {
         PrintCode p1 = new PrintCode();
         p1.spentTime();
-
-
     }
-
 }
 
 

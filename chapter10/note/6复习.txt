@@ -1,0 +1,76 @@
+1.String类
+    ①String的声明：final修饰，不能被继承、实现了Comparable接口
+    ②String的不可变性
+    ③String的两种定义方式：String s = "";
+                        String str = new String("Hello");
+    ④String的内存解析：字符串常量池、堆内存的使用（不能存在两个相同的字面量）
+    ⑤String的连接操作： +
+        常量 + 常量、  变量 + 常量、 变量 + 变量、 concat(Stirng otherString)
+       (字符串常量池)    (堆空间)     (堆空间)         (堆空间)
+    ⑥熟悉String的构造器、与其他结构之间的转换、常用方法
+        常用构造器：
+                  public String(): 初始化新创建的String对象，以使其表示空字符序列
+                  public String(String original): 初始化一个新创建的”String“对象，使其表示一个与参数相同的字符序列
+                  public String(char[] value): 通过当前参数中的字符数组来构造新的String
+                  public String(char[] value, int offset, int count): 通过字符数组的一部分来构造新的String
+                  public String(byte[] bytes): 通过使用平台的”默认字符集“解码当前参数中的字节数组来构造新的String
+                  public String(byte[] bytes, String charsetName):通过使用指定的字符集解码当前参数中的字节数组来构造新的String
+
+        常用方法：
+                (1) boolean isEmpty():字符串是否为空
+                (2) int length():返回字符串的长度
+                (3) String concat(xx):拼接
+                (4) boolean equals(Object obj):比较字符串是否相等，区分大小写
+                (5) boolean equalsIgnoreCase(Object obj):比较字符串是否相等，不区分大小写
+                (6) int compareTo(String other):比较字符串大小，区分大小写，按照Unicode编码值比较大小
+                (7) int compareToIgnoreCase(String other):比较字符串大小，不区分大小写
+                (8) String toLowerCase():将字符串中大写字母转为小写
+                (9) String toUpperCase():将字符串中小写字母转为大写
+                (10) String trim():去掉字符串前后空白符
+                (11) public String intern():结果在常量池中共享
+                (12) boolean contains(xx): 是否包含xx
+                (13) int indexOf(xx): 从前往后查找当前字符串中xx,即如果有返回第一次出现的下标，要是没有返回-1
+                (14) int indexOf(String str, int fromIndex):返回指定子字符串在此字符串中第一次出现处的索引
+                (15) int lastIndexOf(xx):从后往前查找当前字符串中xx,即如果有返回第一次出现的下标，要是没有返回-1
+                (16) int lastIndexOf(String str, int fromIndex):返回指定子字符串在此字符串中最后一次出现处的索引
+                (17) String substring(int beginIndex):返回一个新的字符串，它是此字符串的从beginIndex开始截取的
+                (18) String substring(int beginIndex， int endIndex):返回一个新的字符串，它是此字符串的从beginIndex开始截取，endIndex结束
+                (19) char charAt(index):返回[index]位置的字符
+                (20) static String valueOf(char[] data):返回指定数组中表示该字符序列的String
+                (21) static String valueOf(char[] data, int offset, int count):返回指定数组中表示该字符序列的String
+                (22) static String copyValueOf(char[] data):返回指定数组中表示该字符序列的String
+                (23) static String copyValueOf(char[] data, int offset, int count):返回指定数组中表示该字符序列的String
+                (24) boolean startWith(xx):测试此字符串是否以指定的前缀开始
+                (25) boolean startWith(String prefix, int toffset):测试此字符串从指定索引开始的子字符串是否以指定前缀开始
+                (26) boolean endsWith(xx):测试此字符串是否以指定的后缀结束
+
+        编码和解码：（使用getBytes()方法时相关知识）
+            编码：字符、字符串 ---> 字节、字节数组。 对应着编码集
+            解码：字节、字节数组 ---> 字符、字符串。 对应着解码集
+            规则：解码集必须使用当初编码时使用的编码集。只要不一致，就可能出现乱码
+
+            如： byte[] arr1 = str.getBytes("gbk");
+                String str2 = new String(arr1,"gbk");
+
+    ⑦String相关的算法问题
+
+2.StringBuffer、StringBuilder类
+    ①String、StringBuffer、StringBuilder的区别
+    ②知道什么场景下使用StringBuffer、StringBuilder
+
+3.jdk8之前的日期、时间API
+    ①System的currentTimeMillis()
+    ②两个Date的使用
+    ③SimpleDateFormat用于格式化、解析
+    ④Calendar日历类的使用
+
+4.jdk8及之后的日期、时间API
+    ①LocalDate、LocalTime、LocalDateTime  ---> 类似于Calendar
+    ②instant ----> 类似于Date
+    ③DateTimeFormatter --->  类似与SimpleDateFormat
+
+5.比较器
+    ①Comparable：公用的比较大小的方法
+    ②Comparator：自己独自用的比较大小的方法
+
+6.其他的API

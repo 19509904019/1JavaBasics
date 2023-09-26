@@ -63,7 +63,7 @@ public class DataTimeTest {
         System.out.println(strDate);
 
         //解析
-        Date date2 = sdf.parse("2023/9/5 下午9:11");
+        Date date2 = sdf.parse(strDate);
         System.out.println(date2);
     }
 

@@ -21,3 +21,54 @@
 
          常用方法：get(int field) / set(int field, xx) / add(int field, xx)
                   getTime() / setTime()
+
+二、jdk8及之后的API：
+    1.LocalDate、LocalTime、LocalDateTime  --->  类似于Calendar  (Calendar是可变的，LocalDate等是不可变的)
+        > 实例化：now()：当前时间 / of(xxx,xx,xx)：自定义
+        > 方法：get() / withXxx() / plusXxx() / minusXxx() ...
+
+    2.Instant：瞬时  ---> 类似于Date
+        > 实例化： now()：当前时间 / ofEpochMilli()：自定义，括号内填写时间戳
+        > 方法：toEpochMilli()：获取时间戳
+
+    3.DateTimeFormatter ----> 类似于SimpleDateFormat
+        用于格式化和解析
+        format
+        parse
+        lcoalDateTime.toInstant(ZoneOffset.UTC).toEpochMilli():获取时间戳
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
