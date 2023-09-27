@@ -63,7 +63,7 @@
     内部类与外部类变量不重名：直接调用，(外部)name = name; 等同于 Person.this.name = name;
 
     内部类与外部类变量重名：
-        内部内调用内部变量：(内部)age = age; 或  this.age = age;
+        内部类调用内部变量：(内部)age = age; 或  this.age = age;
         内部类调用外部变量： Person.this.age = age;
 
     内部类调用外部类的方法也相同：内部类：this.eat(); 或 eat();   外部类：Person.this.eat();

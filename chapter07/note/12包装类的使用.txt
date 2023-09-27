@@ -25,6 +25,8 @@ boolean ---> Boolean
     3.2如何转换：
        基本数据类型 ---> 包装类：①使用包装类的构造器  ②(建议)调用包装类的valueOf(xxx xx)
        包装类  ----> 基本数据类型：调用包装类的xxxValue()
+       Integer wrapperInt = Integer.valueOf(10);
+       int primitiveInt = wrapperInt.intValue();
 
        用如下方式进行转换：
        // 自动装箱：基本数据类型  ----> 包装类
