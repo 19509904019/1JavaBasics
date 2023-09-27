@@ -11,19 +11,19 @@
 public class DemoTest {
     public static void main(String[] args) {
 
+
     }
 
-    public String stringSort(String str) {
-        char[] arr = str.toCharArray();
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    char temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+    public int getMaxCommonSubstring(String str1, String str2) {
+        int count = 0;
+        if(str1.length() >= str2.length()){
+            int index = str1.indexOf(str2);
+
+            while(index >= 0){
+                count++;
+                index = str1.indexOf(str2,index + str2.length());
             }
         }
-        return new String(arr);
+        return count;
     }
 }

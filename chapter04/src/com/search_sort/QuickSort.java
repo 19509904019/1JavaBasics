@@ -45,7 +45,7 @@ public class QuickSort {
         int low = 0;
         int high = arr.length - 1;
         // 进行排序
-        QuickSort qs = new QuickSort(); // 创建对象的类名必须和文件名一致
+        QuickSort qs = new QuickSort();
         qs.quickSort(arr, low, high);
         System.out.println(Arrays.toString(arr)); // 输出数组
     }
