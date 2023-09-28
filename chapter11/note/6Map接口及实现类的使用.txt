@@ -1,0 +1,46 @@
+1.Map及其实现类对比
+    java.util.Map: 存储一对一对的数据（key-value键值对，(x1、y1)、(x2、y2) --> y=f(x),类似于函数）
+        |----HashMap：主要实现类；线程不安全的，效率高；可以添加null的key和value值；底层使用数组+单向链表+红黑树结构存储(jdk)
+            |---LinkedHashMap：是HashMap的子类；在HashMap使用的数据结构的基础上，增加了一对双向链表，用于记录添加的元素
+                               的先后顺序，进而我们在遍历的时候，就可以按照添加的顺序显示
+                               开发中，对于频繁的遍历操作，建议使用此类
+
+        |---TreeMap:底层使用红黑树存储；可以按照添加的key-value中的key元素的指定的属性大小顺序进行遍历
+                    需要考虑使用：①自然排序  ②定制排序
+
+        |---Hashtable：古老实现类；线程安全的，效率低；不可以添加null的key和value值；底层使用数组+单向链表结构存储
+           |---Properties：其key和value都是String类型，常用来处理属性文件
+
+[面试题] 区别HashMap和Hashtable、区别HashMap和LinkedHashMap、HashMap的底层实现①new HashMap() ②put(key,value)
+
+2.HashMap中元素的特点
+    > HashMap中所有的key彼此之间是不可重复的、无序的。所有的key就构成了一个Set集合 ---> key所在的类要重写equals()和hashCode()
+    > HashMap中所有的value彼此之间是可重复的、无序的。所有的value就构成一个Collection集合 ---> value所在的类要重写equals()
+    > HashMap中的一个key-value。就构成了一个entry
+    > HashMap中所有的entry彼此之间是不可重复的、无序的。所有的entry就构成了一个Set集合
+
+3.Map中常用的方法
+    增：
+        put(Object key, Object value)
+
+    删：
+        Object remove(Object key)
+
+    改：
+        put(Object key, Object value)
+        putAll(Map m)
+
+    查：
+        Object get(Object key):获取key所对应的value值
+
+    长度：
+        size()
+
+    遍历：
+        遍历key集：Set keySet()
+        遍历value集：Collection values()
+        遍历entry集： Set entrySet()
+
+4.TreeMap的使用
+
+5.Hashtable与Properties的使用
