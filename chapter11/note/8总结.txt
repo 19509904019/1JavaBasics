@@ -1,0 +1,158 @@
+1. 数组存储数据方面的特点和弊端
+    ①数组存储多个数据方面的特点：
+        > 数组一旦初始化，其长度就是确定的
+        > 数组中的多个元素是依次紧密排列的，有序的，可重复的
+        > （优点）数组一旦初始化完成，其元素的类型就是确定的。不是此类型的元素，就不能添加到此数组中
+        > （优点）元素的类型既可以是基本数据类型，也可以是引用数据类型
+
+    ②数组存储多个数据方面的弊端：
+        > 数组一旦初始化，其长度就不可变了
+        > 数组中存储数据特点的单一性。对于无序的、不可重复的场景的多个数据就无能为力了
+        > 数组中可用的方法、属性都极少。具体的需求都需要自己来组织相关的代码逻辑
+        > 针对于数组中元素的删除、插入操作，性能较差
+
+2. 集合框架概述
+    ①java.util.Collection: 存储一个一个的数据
+        > 子接口  List:存储有序的、可重复的数据
+            ArrayList、LinkedList、Vector
+
+        > 子接口  Set:存储无序的、不可重复的数据
+            HashSet、LinkedHashSet、TreeSet
+
+    ②java.util.Map: 存储一对一对的数据（key-value键值对，(x1、y1)、(x2、y2) --> y=f(x),类似于函数）
+        HashMap、LinkedHashMap、TreeMap、Hashtable、Properties
+
+3. Collection的常用方法
+    3.1 常用方法
+        add(Object obj)
+        addAll(Collection coll)
+        remove(Object obj)
+        removeAll(Collection coll)
+        retainAll(Collection coll)  // 交集
+        contains(Object obj)
+        containsAll(Collection coll)
+        isEmpty()
+        clear()
+        equals()
+        size()
+        hashcode()
+        toArray() 还有一个泛型相关的
+        iterator()
+
+        ·向Collection中添加元素的要求：
+            要求元素所属的类一定要重写equals()!
+
+        集合 ---> 数组： toArray()
+        数组 ---> 集合： 调用Arrays.asList(Object ... objs)，返回一个List
+
+    3.2 迭代器接口
+        ·设计模式的一种
+        ·迭代器不负责数据的存储；负责对集合类的遍历
+        ·如何获取迭代器？
+            Iterator iterator = coll.Iterator();
+        ·如何实现遍历
+            while(iterator.hasNext()){
+                System.out.println(iterator.next());
+                // next(): ①指针下移 ②将下移以后集合位置上的元素返回
+            }
+
+4. Collections的子接口：List
+    ·常用方法
+         增
+            add(Object obj)
+            addAll(Collection coll)
+
+        删
+            remove(Object obj)
+            removeAll(Collection coll)
+
+        改
+            set(int index,Object obj)
+
+        查
+            get(int idnex)
+            subList(int fromIndex, int toIndex)
+
+        插
+            add(int index, Object ele)
+            addAll(int index, Collection coll)
+
+        长度
+            size()
+
+        遍历
+            Iterator():使用迭代器进行遍历
+            增强for循环
+            一般的循环
+
+    ·List及其实现类特点
+        ArrayList:List的主要实现类；线程不安全的、效率高；底层使用Object[]数组存储
+                  在添加数据、查找数据时，效率较高；在插入、删除数据时，效率较低
+
+        Vector:List的古老实现类，线程安全的、效率低；底层使用Object[]数组存储
+
+        LinkList:底层使用双向链表的方式进行存储；在添加数据、查找数据时，效率较低；在插入、删除数据时，效率较高
+                 在对集合中的数据进行频繁的删除、插入操作时，建议使用此类；
+
+        [面试题] ArrayList、Vector的区别？ArrayList和LinkList的区别？
+
+5. Collections的子接口：Set
+    ·Set中常用方法都是Collection中声明的方法，没有新增的方法
+    ·常见的实现类的对比
+        特点：存储无序的、不可重复的数据
+        HashSet：主要实现类；底层使用的时HashMap，即使用数组+单向链表+红黑树结构进行存储
+        LinkedHashSet：是HashSet的子类；在现有的数组+单向链表+红黑树结构的基础上，又添加了
+                       一组双向链表，用于记录添加元素的先后顺序。即：我们可以按照添加元素的顺序实现遍历
+        TreeSet：底层使用红黑树存储。可以按照添加元素指定属性的大小顺序进行遍历
+
+    ·难点：Set中无序性、不可重复性的理解
+    ·了解TreeSet的使用
+
+6. Map接口
+    ·常用方法
+        增：
+            put(Object key, Object value)
+
+        删：
+            Object remove(Object key)
+
+        改：
+            put(Object key, Object value)
+            putAll(Map m)
+
+        查：
+            Object get(Object key):获取key所对应的value值
+
+        长度：
+            size()
+
+        遍历：
+            遍历key集：Set keySet()
+            遍历value集：Collection values()
+            遍历entry集： Set entrySet()
+
+    ·常用的实现类
+        java.util.Map: 存储一对一对的数据（key-value键值对，(x1、y1)、(x2、y2) --> y=f(x),类似于函数）
+        |----HashMap：主要实现类；线程不安全的，效率高；可以添加null的key和value值；底层使用数组+单向链表+红黑树结构存储(jdk)
+            |---LinkedHashMap：是HashMap的子类；在HashMap使用的数据结构的基础上，增加了一对双向链表，用于记录添加的元素
+                               的先后顺序，进而我们在遍历的时候，就可以按照添加的顺序显示
+                               开发中，对于频繁的遍历操作，建议使用此类
+
+        |---TreeMap:底层使用红黑树存储；可以按照添加的key-value中的key元素的指定的属性大小顺序进行遍历
+                    需要考虑使用：①自然排序  ②定制排序
+
+        |---Hashtable：古老实现类；线程安全的，效率低；不可以添加null的key和value值；底层使用数组+单向链表结构存储
+           |---Properties：其key和value都是String类型，常用来处理属性文件
+
+    ·HashMap中元素的特点：
+        防止出错，将equals()方法和hashCode()方法都重写
+
+    ·（了解）TreeMap的使用
+    ·（掌握）Properties的使用
+
+7. Collections工具类的使用
+    ·区分Collection 和 Collections
+        Collection: 集合框架中的用于存储一个一个元素的接口，又分为List和Set等子接口
+        Collections:用于操作集合框架的一个工具类。此时的集合框架包括：List、Set、Map
+
+    ·熟悉常用的Collections中的方法即可
