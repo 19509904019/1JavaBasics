@@ -1,0 +1,34 @@
+1. 泛型的理解
+    <E>，泛型参数，使用引用数据类型来赋值
+
+2. 泛型在集合、比较器中的使用
+    集合：ArrayList、HashMap、Iterator
+    比较器：Comparable、Comparator
+
+3.自定义泛型 / 泛型接口、泛型方法
+    ·class Order<T>{}
+    ·public <E> 返回值类型 方法名(形参列表){}
+
+4.泛型在继承上的体现
+    ① 类SuperA是类A的父类，则G<SuperA> 与 G<A>的关系
+        G<SuperA> 与 G<A>是并列的两个类，没有任何子父类关系
+        比如：
+            ArrayList<Object>、ArrayList<String>没有关系
+
+
+   ② 类SuperA是类A的父类或接口，SuperA<G>与A<G>的关系：
+        SuperA<G>与A<G>有继承或实现的关系，即A<G>的实例可以复制给SuperA<G>类型的引用
+        比如：
+            List<String>和ArrayList<String>
+
+5.通配符的使用
+    ·？的使用
+        以集合为例：可以读取数据、不能写入数据（null例外）
+    ·？extends A
+        以集合为例：可以读取数据、不能写入数据（null例外）
+    ·？super A
+        以集合为例：可以读取数据、可以写入A类型或A类型子类的数据（null例外）
+
+[面试题] 说一说什么是泛型？有什么优点和好处？
+    泛型就是程序中不确定的数据类型，简单来说就是在具体代码中不确定变量该声明什么数据类型，此时就可以用
+    泛型来进行修饰，在具体使用的过程中在进行具体声明，提高了编程的灵活性以及增加类型的安全性。
