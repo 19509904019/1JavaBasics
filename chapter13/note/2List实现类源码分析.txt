@@ -1,0 +1,64 @@
+一、ArrayList
+    1. ArrayList的特点
+        > 实现了List接口，存储有序的、可以重复的数据
+        > 底层使用Object[]数组存储
+        > 线程不安全
+
+    2. ArrayList源码解析：
+        2.1 jdk7版本：
+
+            // 如下代码的执行：底层会初始化数组，数组的长度为10。
+                即为Object[] elementData = new Object[10];
+
+            ArrayList<String> list = new ArryList<>();
+            list.add("AA");  // elementData[0] = "AA";
+            list.add("BB");  // elementData[1] = "BB";
+            list.add("CC");  // elementData[2] = "CC";
+            list.add("DD");  // elementData[3] = "DD";
+            ...
+
+        2.2 jdk8版本：
+        // 如下代码的执行：底层会初始化数组，数组的长度起始为0。当添加第一个元素时，
+            长度变为10，即为Object[] elementData = new Object[]{};
+
+
+            ArrayList<String> list = new ArryList<>();
+            list.add("AA");  // elementData[0] = "AA";
+            list.add("BB");  // elementData[1] = "BB";
+            list.add("CC");  // elementData[2] = "CC";
+            list.add("DD");  // elementData[3] = "DD";
+            ...
+
+        小结：
+            jdk7：类似于饿汉式
+            jdk8：类似于懒汉式
+
+二、Vector
+    > 实现了List接口，存储有序、可重复的数据
+    > 底层使用的时Object[]数组存储
+    > 线程安全的
+
+    源码解析：
+        初始化时即为长度为10的数组
+
+三、LinkedList
+    1. LinkList的特点：
+        > 实现了List接口，存储有序的、可重复的数据
+        > 底层使用双向链表的存储结构
+        > 线程不安全的
+
+    2. LinkList在jdk8中的源码解析：
+        LinkList不存在扩容问题
+
+四、启示与开发建议
+    1. Vector基本不适用
+    2. ArrayList底层使用数组结构：查找和添加操作效率高，时间复杂度为O(1)
+                               删除和插入操作效率低，时间复杂度为O(n)
+    3. LinkedList底层使用数组结构：查找和添加操作效率低，时间复杂度为O(n)
+                                删除和插入操作效率高，时间复杂度为O(1)
+    4.在选择了ArrayList的前提下：new ArrayList():底层创建长度为10的数组
+                              new ArrayList(int capacity):底层创建指定capacity长度的数组
+      如果在开发中大体确定数组的长度，则推荐使用new ArrayList(int capacity)，避免底层扩容、复制数组
+
+
+
