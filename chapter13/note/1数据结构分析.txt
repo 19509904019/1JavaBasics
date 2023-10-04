@@ -132,7 +132,7 @@
         }
 
         // 出栈
-        public void pop(Object ele){
+        public Object pop(Object ele){
             if(size == 0){
             throw new RuntimeException("栈空间已空，出栈失败！");
             }
@@ -145,4 +145,36 @@
     }
 
 7. 常见存储结构：队列(queue、先进先出、first in first out、FIFO)
+    class Queue{
+        Object[] values;
+        int size; // 记录存储的元素的个数
 
+        public Queue(int length){
+            values = new Object[length];
+        }
+
+        public void add(Object ele){
+            if(size >= values.length){
+                throw new RuntimeException("队列已满，添加失败！");
+            }
+
+            values[size++] = ele;
+        }
+
+        public Object get(){
+            if(size <= 0){
+                throw new RuntimeException("队列已空，获取失败！");
+            }
+
+            Object obj = values[0];
+            for(int i = 0; i < size - 1; i++){
+                value[i] = value[i + 1];
+            }
+
+            value[--size] = null;
+
+            return obj;
+            }
+        }
+
+    }
