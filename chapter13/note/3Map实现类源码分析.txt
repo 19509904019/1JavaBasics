@@ -53,9 +53,13 @@
 
 二、LinkedHashMap
     1. LinkedHashMap 与 HashMap的关系：
+        > LinkedHashMap是HashMap的子类。
+        > LinkedHashMap在HashMap使用数组+单向链表+红黑树的基础上又增加了一对双向链表，记录添加(key, value)的
+          先后顺序，便于我们遍历所有的key-value
 
-    2. 底层结构
-
+    2. 底层结构:LinkedHashMap内部定义了一个Entry
 
 三、HashSet和LinkedHashSet的源码分析
+    > HashSet底层使用的是HashMap
+    > LinkedHashSet底层使用的是LinkedHashMap
 
