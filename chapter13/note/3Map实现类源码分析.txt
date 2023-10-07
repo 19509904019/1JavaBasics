@@ -1,0 +1,61 @@
+一、HashMap
+    1. HashMap中元素的特点
+        > HashMap中的所有的key彼此之间是不重复的、无序的。
+            所有的Key就构成了一个Set集合：keySet，需要重写equals()和hashCode()
+        > HashMap中所有的value彼此之间是可重复的、无序的。
+            所有的value集合就构成了一个Collection集合：values()，需要重写equals()
+        > HashMap中的一个key-value，就构成了entry
+        > HashMap中所有的entry彼此之间是不可重复的、无序的。所有的entry就构成了一个Set集合
+
+    2. HashMap源码解析
+        2.1 jdk7中创建对象和添加数据过程：
+
+            // 创建对象的过程中，底层会初始化数组Entry[] table = new Entry[16];
+            HashMap<String, Integer> map = new HashMap<>();
+            ...
+            map.put("AA",78);  // "AA"和78封装到一个Entry对象中，考虑将此对象添加到table数组中
+            ...
+
+            添加 / 修改过程：
+                将(key1, value1)添加到当前的map中
+                首先，需要调用key1所在类的hashCode()方法，计算key1对应的哈希值1，此哈希值1经过某种
+                算法(hash())之后，得到哈希值2。哈希值2再经过某种算法（indexFor()）之后，就确定了其
+                在数组table中的索引位置i
+                    > 如果此索引位置i的数组上没有元素，则(key1, value1)添加成功 ---> 情况1
+                    > 如果此索引位置i的数组上有元素(key2, value2)，则需要继续比较key1和key2的哈希值2 ---> 哈希冲突
+                        > 如果key1的哈希值2与key2的哈希值2不相同，则(key1, value1)添加成功（头插法）  ---> 情况2
+                        > 如果key1的哈希值2与key2的哈希值2相同，则需要继续比较key1和key2的equals()。
+                            要调用key1所在类的equals()，将key2作为参数传递进去
+                                > 调用equals()，返回false：则(key1, value1)添加成功   ---> 情况3
+                                > 调用equals()，返回true：则认为key1和key2是相同的。默认情况下，value1替换原有的value2
+
+                情况1：将(key1, value1)存放到数组的索引i的位置
+                情况2，情况3：(key1, value1)元素与现有的(key2, value2)构成单向链表结构，(key1, value1)指向(key2, value2)
+
+                随着不断的添加元素，在满足如下条件的情况下，会考虑扩容：
+                    (size >= threshold) && (null != table[i])
+                    当元素的个数达到临界值(-> 数组的长度 * 加载因子)时，就考虑扩容。默认的临界值 = 16 * 0.75 --> 12
+                    默认扩容为原来的2倍
+
+        2.2 jdk8中创建对象和添加数据过程：
+            ① 在jdk8中，当我们创建了HashMap实例以后，底层并没有初始化table数组。当首次添加(key, value)时，进行判断，
+                如果发现table尚未初始化，则对数组进行初始化
+            ② 在jdk8中，HashMap底层定义了Node内部类，替换jdk7中的Entry内部类。意味着，我们创建的数组是Node[]
+            ③ 在jdk8中，如果当前的(key, value)经过一系列判断之后，可以添加到当前的数组角标i中。如果此时角标i位置上有元素，在
+                jdk7中是将新的(key, value)指向已有的旧的元素(头插法)，而在jdk8中是旧的元素指向新的(key, value)元素(尾插法)。
+                之所以使用尾插法是引用了红黑树结构，并且尾插法可以减少链表节点的移动次数，从而提高插入操作的效率。
+                "七上八下"
+            ④ jdk7:数组 + 单向链表
+               jdk8:数组 + 单向链表 + 红黑树
+                    什么时候会使用红黑树：如果数组索引i位置上的元素的个数达到8，并且数组的长度达到64时，我们就将此索引i位置上的多个
+                                      元素改为使用红黑树的结构进行存储，修改后的数据结构进行增删改的时候时间复杂度从O(n)变为O(logn)
+                    什么时候从红黑树转为单链表：当使用红黑树的索引i位置上的元素的个数低于6的时候，就会将红黑树结构退化为单向链表
+
+二、LinkedHashMap
+    1. LinkedHashMap 与 HashMap的关系：
+
+    2. 底层结构
+
+
+三、HashSet和LinkedHashSet的源码分析
+
