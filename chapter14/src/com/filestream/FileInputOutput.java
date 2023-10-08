@@ -1,4 +1,4 @@
-package filestream;
+package com.filestream;
 
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class FileInputOutput {
         try {
             // 1. 创建相关的File类的对象
             File file = new File("123.jpg");
-            File newFile = new File("123_copy.jpg");
+            File newFile = new File("123.jpg");
 
             // 2. 创建相关的字节流
             fis = new FileInputStream(file);

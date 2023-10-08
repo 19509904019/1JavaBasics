@@ -1,4 +1,4 @@
-package filestream;
+package com.filestream;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class FileReaderWriterTest {
     @Test
     public void test1() throws IOException {
         // 1.创建File类的对象，对应着hello.txt文件
-        File file = new File("hello.txt");
+        File file = new File("123_utf8.txt");
 
         // 2.创建输入型的字符流，用于读取数据
         FileReader fileReader = new FileReader(file);
@@ -38,7 +38,7 @@ public class FileReaderWriterTest {
         FileReader fileReader = null;
         try {
             // 1.创建File类的对象，对应着hello.txt文件
-            File file = new File("hello.txt");
+            File file = new File("123_utf8.txt");
 
             // 2.创建输入型的字符流，用于读取数据
             fileReader = new FileReader(file);
@@ -65,7 +65,7 @@ public class FileReaderWriterTest {
         FileReader fileReader = null;
         try {
             // 1.创建File类的对象，对应着hello.txt文件
-            File file = new File("hello.txt");
+            File file = new File("123_utf8.txt");
 
             // 2.创建输入型的字符流，用于读取数据
             fileReader = new FileReader(file);
@@ -135,7 +135,7 @@ public class FileReaderWriterTest {
         FileWriter fileWriter = null;
         try {
             // 读取文件
-            File file = new File("hello.txt");
+            File file = new File("123_utf8.txt");
             fileReader = new FileReader(file);
 
             // 写入新文件
