@@ -1,4 +1,4 @@
-package com.atguigu02.tcpudp.chat;
+package com.tcpudp.chat;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class ChatServerTest {
 	//这个集合用来存储所有在线的客户端
-	static ArrayList<Socket> online = new  ArrayList<Socket>();
+	static ArrayList<Socket> online = new  ArrayList<>();
 	
 	public static void main(String[] args)throws Exception {
 		//1、启动服务器，绑定端口号
@@ -27,7 +27,7 @@ public class ChatServerTest {
 
 			//主要负责获取当前socket中的数据，并分发给当前聊天室的所有的客户端。
 			MessageHandler mh = new MessageHandler(socket);
-			mh.start();//
+			mh.start();
 		}
 	}
 	
