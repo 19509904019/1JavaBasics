@@ -1,0 +1,67 @@
+1. File类的使用
+    ① File类的一个实例对应着磁盘上的一个文件或文件目录
+    ② File的实例化、常用方法
+    ③ File类中只有新建、删除、获取路径的方法，不包含读写文件的方法。此时需要使用IO流
+
+2. IO流的概述
+    IO流的分类
+        流向：输入流、输出流
+        处理数据单位：字节流、字符流
+        流的角色：节点流、处理流
+
+    IO的4个抽象基类：InputStream / OutputStream / Reader / Writer
+
+3. 节点流之：文件流
+    ·FileInputStream / FileOutputStream / FileReader / FileWriter
+
+    ·读写数据的过程
+        步骤1：创建File类的对象，作为读取或写出数据的端点
+        步骤2：创建相关的流的都西昂
+        步骤3：读取、写出数据的过程
+        步骤4：关闭流资源
+
+4. 节点流之一：缓冲流
+    ·BufferedInputStream / BufferedOutputStream / BufferedReader / BufferedWriter
+
+    ·作用：减少与磁盘交互，实现更高效的读写数据的操作
+
+5. 节点流之二：转换流
+    ·层次1：熟悉转换流的使用
+        InputStreamReader / OutputStreamWriter
+
+    ·（掌握）层次2：字符编码和解码的过程、常用的字符集
+        解决相关问题：读写字符出现乱码！本质问题：使用的解码集与编码集不一致
+
+6. 节点流之三：对象流
+    层次1：熟悉对象流的使用
+        ObjectOutputStream: 序列化时使用
+        ObjectInputStream: 反序列化时使用
+
+    层次2：对象的序列化机制
+        ·使用场景：不通风的进程之间通信、客户端与服务器端传输数据
+        ·自定义类要想实现序列化机制需要满足的要求及注意点
+            static final long serialVersionUID = 4643541646L;
+
+7. 其他流的使用
+    了解：数据流：DateInputStream、DataOutputStream
+    了解：标准打印流、标准的输出流：System.in、System.out
+    了解：打印流：PirntStream、PrintWriter
+
+[面试题] Java中有几种类型的流？
+      流向：输入流、输出流
+      处理数据单位：字节流、字符流
+      流的角色：节点流、处理流
+
+      4中基类：InputStream / OutputStream / Reader / Wirter
+
+      什么是缓冲区？有什么作用？
+      内部提供了一个数组，将读取或要写出的数据，先存在此数组中缓存，达到一定程度集中性的写出
+      作用：减少与磁盘交互，提高数据操作效率
+
+      什么是Java序列化，如何实现？
+          对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在
+      磁盘上，或通过网络将这种二进制流传输到另一个网络节点。当其他程序获取了这种二进制流，就可以恢复成原来的
+      Java对象。
+
+      Java有些类中为什么需要实现Serializable接口？
+        便于此类的对象实现序列化操作
