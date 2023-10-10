@@ -60,13 +60,13 @@
 >成员内部类的理解： 类中的类
 >如何创建成员内部类的实例：（见4，分静态和非静态声明）
 >如何在成员内部类中调用外部类的结构
-    内部类与外部类变量不重名：直接调用，(外部)name = name; 等同于 com.reflectexample.Person.this.name = name;
+    内部类与外部类变量不重名：直接调用，(外部)name = name; 等同于 Person.this.name = name;
 
     内部类与外部类变量重名：
         内部类调用内部变量：(内部)age = age; 或  this.age = age;
-        内部类调用外部变量： com.reflectexample.Person.this.age = age;
+        内部类调用外部变量： Person.this.age = age;
 
-    内部类调用外部类的方法也相同：内部类：this.eat(); 或 eat();   外部类：com.reflectexample.Person.this.eat();
+    内部类调用外部类的方法也相同：内部类：this.eat(); 或 eat();   外部类：Person.this.eat();
 
 >局部内部类的基本使用: 同接口的匿名使用相同  USB usb = new USB{
                                                 // 重写接口中的方法

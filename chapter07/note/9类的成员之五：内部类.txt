@@ -10,9 +10,9 @@
 
 4. 内部类的分类：（参考变量的分类）
     > 成员内部类：直接声明在外部类的里面
-        >使用static修饰的，静态成员内部类  com.reflectexample.Person.Cat cat = new com.reflectexample.Person.Cat();
+        >使用static修饰的，静态成员内部类  Person.Cat cat = new Person.Cat();
                                    (类里面的类对象直接声明静态类)
-        >不使用static修饰的，非静态成员内部类  com.reflectexample.Person p1 = new com.reflectexample.Person();   p1.Cat cat = p1.new.Cat();
+        >不使用static修饰的，非静态成员内部类  cPerson p1 = new Person();   p1.Cat cat = p1.new.Cat();
                                           (先声明对象才能调用非静态内部类)   (对象调用类再声明)
     > 局部内部类：声明在方法内、构造器内、代码块内的内部类
         >匿名的局部内部类
@@ -22,13 +22,13 @@
     >成员内部类的理解： 类中的类
     >如何创建成员内部类的实例：（见4，分静态和非静态声明）
     >如何在成员内部类中调用外部类的结构
-        内部类与外部类变量不重名：直接调用，(外部)name = name; 等同于 com.reflectexample.Person.this.name = name;
+        内部类与外部类变量不重名：直接调用，(外部)name = name; 等同于 Person.this.name = name;
 
         内部类与外部类变量重名：
             内部内调用内部变量：(内部)age = age; 或  this.age = age;
-            内部类调用外部变量： com.reflectexample.Person.this.age = age;
+            内部类调用外部变量： Person.this.age = age;
 
-        内部类调用外部类的方法也相同：内部类：this.eat(); 或 eat();   外部类：com.reflectexample.Person.this.eat();
+        内部类调用外部类的方法也相同：内部类：this.eat(); 或 eat();   外部类：Person.this.eat();
 
     >局部内部类的基本使用: 同接口的匿名使用相同  USB usb = new USB{
                                                     // 重写接口中的方法

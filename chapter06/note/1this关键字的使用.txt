@@ -6,7 +6,7 @@ this关键字的使用
 
         ①具体来讲，使用this修饰变量，表示的是属性。没有用this修饰的，表示的是形参
 
-        public class com.reflectexample.Person{
+        public class Person{
                private int age;
 
                public void setAge(int age){
@@ -28,13 +28,13 @@ this关键字的使用
         特殊情况：如果方法的形参与对象的属性同名了，我们必须使用"this."进行区分。使用"this."修饰的变量
         即为属性（或成员变量），没有使用"this."修饰的变量，即为局部变量。
 
-        public class com.reflectexample.Person{
-                       private int age;
+        public class Person{
+               private int age;
 
-                       public void setAge(int age){
-                            this.age = age;  // 形参与属性名相同，则属性名前加上this
-                            }
-                }
+               public void setAge(int age){
+                    this.age = age;  // 形参与属性名相同，则属性名前加上this
+                    }
+        }
 
 
         针对于构造器内的使用情况：(准确的说是非static修饰的方法)
