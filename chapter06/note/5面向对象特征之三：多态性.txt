@@ -3,7 +3,7 @@
 
 2.Java中多态性的体现：
     子类对象的多态性：父类的引用指向子类的对象。（或子类的对象赋给父类的引用）
-    比如：Person person = new Man();
+    比如：com.reflectexample.Person person = new Man();
 
 3.多态性的应用：
     虚拟方法的调用

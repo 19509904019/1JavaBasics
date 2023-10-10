@@ -50,7 +50,7 @@
         对比：相较于循环结构，递归方法效率稍低，内存占用偏高
 
 5.对象数组
-Sting[]; Person[]; ....
+Sting[]; com.reflectexample.Person[]; ....
 
 6.package、import关键字的使用
 package: 指明声明的类所属的包

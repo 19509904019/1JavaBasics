@@ -1,6 +1,6 @@
 强调1：创建了Person类的两个对象
-Person p1 = new Person();
-Person p2 = new Person();
+com.reflectexample.Person p1 = new com.reflectexample.Person();
+com.reflectexample.Person p2 = new com.reflectexample.Person();
 
 创建类的多个对象时，每个对象在堆空间中有一个对象实体。每个对象实体中保存着一份类的属性
 如果修改某一个对象的某属性值时，不会影响其他对象此属性的值
@@ -12,8 +12,8 @@ p1.age = 30;
 System.out.println(p2.age); // 20
 
 强调2：声明类的两个变量
-Person p1 = new Person();
-Person p3 = p1;
+com.reflectexample.Person p1 = new com.reflectexample.Person();
+com.reflectexample.Person p3 = p1;
 
 说明：此时的 p1,p3 两个变量指向了堆空间中的同一个对象实体。（或p1,p3保存的地址值相同）
 如果通过其中某一个对象变量修改对象的属性时，会导致另一个对象变量此属性的值
