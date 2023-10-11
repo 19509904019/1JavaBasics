@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
 /**
  * ClassName:reflectexample.ReflectionTest
  * Description:
@@ -34,14 +33,14 @@ public class ReflectionTest {
 
         // 调用属性
         Field ageField = clazz.getField("age");
-        System.out.println(ageField); // public int reflectexample.Person.age
+        System.out.println(ageField); // public int com.reflectexample.Person.age
         ageField.set(p1,10);
         System.out.println(ageField.get(p1));
-        System.out.println(p1);
+        System.out.println(p1);  //reflectexample.Person{name='null', age=10}
 
         // 调用方法
         Method showMethod = clazz.getMethod("show");
-        showMethod.invoke(p1);
+        showMethod.invoke(p1);  // show()...
     }
 
     /*

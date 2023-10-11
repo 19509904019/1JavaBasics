@@ -1,4 +1,4 @@
-package com.reflectexample;
+package com.reflectapply;
 
 /**
  * ClassName:reflectexample.Person
@@ -8,11 +8,24 @@ package com.reflectexample;
  * @Create 2023/10/10 10:38
  * @Version 1.0
  */
+
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+@interface CustomAnnotation {
+    String value();
+
+    int priority() default 0;
+}
+
 public class Person {
     private String name;
     public int age;
+    static String info;
 
     public Person() {
+        System.out.println("Person()...");
     }
 
     private Person(String name, int age) {
@@ -20,6 +33,7 @@ public class Person {
         this.age = age;
     }
 
+    @CustomAnnotation(value = "Performing operation", priority = 2)
     public String getName() {
         return name;
     }
@@ -36,18 +50,25 @@ public class Person {
         this.age = age;
     }
 
-    public void show(){
-        System.out.println("show()...");
+    private void show(String name, int age) {
+        this.name = name;
+        this.age = age;
+        System.out.println("show():我是" + name + ",年龄" + age);
     }
-    private void eat(){
+
+    public void eat() {
         System.out.println("eat()...");
     }
 
     @Override
     public String toString() {
-        return "reflectexample.Person{" +
+        return "Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public static void sleep(){
+        System.out.println("sleep()...");
     }
 }

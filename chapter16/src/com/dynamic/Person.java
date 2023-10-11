@@ -1,4 +1,4 @@
-package com.reflectexample;
+package com.dynamic;
 
 /**
  * ClassName:reflectexample.Person

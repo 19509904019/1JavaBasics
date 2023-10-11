@@ -1,0 +1,79 @@
+1. 反射的概述
+    ·Java给我们提供了一套API，使用这套API可以在运行时动态的获取指定的对象所属的类，对任意一个类都能够知道
+     这个类的所有属性和方法；对于任意一个对象，都可以调用它的任意一个方法和属性
+
+     ·API：
+        java.lang.Class
+        java.lang.reflect.Field
+        java.lang.reflect.Method
+        java.lang.reflect.Constructor
+        ...
+
+2. Class：反射的源头
+    针对于编写好的.java源文件进行编译（使用javac.exe），会生成一个或多个.class字节码文件。接着，我们使
+    java.exe命令对指定的.class文件进行解释运行。这个解释运行的过程中，我们需要将.class字节码文件加载到
+    内存中（类的加载器加载到方法区）。加载到内存中的.class文件对应的结构即为Class的一个实例。
+
+    获取Class的实例的三种方式：
+        ①类.class
+        ②对象.getClass()
+        ③Class调用静态方法forName(String className)
+
+    Class可以指向哪些结构：
+        Object.class;   Comparable.class;   String[].class;
+        int[][].class;  ElementType.class;  Override.class;
+        int.class;  void.class;     Class.class;
+
+3. 类的加载过程、类的加载器
+    类的加载过程：
+        过程1：类的装载(laoding):将类的字节码文件加载到内存中
+
+        过程2：链接(Linking)
+            > 验证(Verify):确保加载的类信息符合JVM规范，例如：以cafebabe开头，没有安全方面的问题
+            > 准备(Prepare):为类的静态变量(static)分配内存空间，并设置默认初始值（零值）。这些静态
+                            变量通常在方法区中进行分配
+            > 解析(Resolve):虚拟机常量池内的符号引用（常量名）替换为直接引用（地址）的过程
+
+        过程3：初始化(initialization)
+            执行类的初始化代码，包括静态变量赋值和静态代码块的执行。
+            类构造器<clinit>()方法是由编译器自动收集类中所有类变量的赋值动作和静态代码块中的语句合并产生的
+
+4. 反射的应用1：创建运行时类的对象
+     Class clazz = Person.class;
+     Person p1 = calzz.newInstance();
+
+5. 反射的应用2：获取运行时类的所有结构
+    （了解）获取运行时类的内部结构1：所有属性、所有方法、所有构造器
+    （熟悉）获取运行时类的内部结构2：父类、接口们、包、带泛型的父类、父类的泛型等
+
+6. 反射的应用3：调用指定的结构
+    指定属性：
+        步骤1:通过Class实例调用getDeclaredField(String fieldName),获取运行时类指定名的属性
+        步骤2：setAccessible(true):确保此属性是可以访问的
+        步骤3：通过Field类的实例调用get(Object obj) 或 set(Object obj, Object value)进行操作
+
+    指定方法：
+        步骤1:通过Class实例调用getDeclaredMethod(String methodName, Class ... args),获取运行时类指定名的方法
+        步骤2：setAccessible(true):确保此方法是可以访问的
+        步骤3：通过Method类的实例调用invoke(Object obj, ... args)进行操作
+            invoke()的返回值即为Method对应的方法的返回值
+            特别的：如果Method对应的方法的返回值类型为void，则invoke()返回值为null
+
+    指定构造器：
+        步骤1.通过Class的实例调用getDeclaredConstructor(Class .. args),获取指定参数类型的构造器
+        步骤2.setAccessible(true):确保此构造器是可以访问的
+        步骤3.通过constructor实例调用newInstance(Object ... objs)，返回一个运行时类的实例
+
+7. 反射的应用
+    自定义注解
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @interface CustomAnnotation {
+            String value();
+            int priority() default 0;
+        }
+        注解要想通过反射的方式获取，必须声明元注解：@Retention(RetentionPolicy.RUNTIME)
+
+8. 体会：反射的动态性
+    见exer代码
+

@@ -10,7 +10,7 @@ package com.singleton;
  */
 public class BankTest {
     public static void main(String[] args) {
-
+        Bank instance = Bank.getInstance();
     }
 }
 
