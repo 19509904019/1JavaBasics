@@ -203,7 +203,5 @@ public class StreamAPIOperateTest {
         collect.forEach(System.out::println);
         System.out.println();
         collect1.forEach(System.out::println);
-
-
     }
 }
