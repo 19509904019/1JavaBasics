@@ -1,0 +1,5 @@
+public sealed class Person permits Student,Teacher,Worker
+
+主要关键字：sealed  permits
+
+只允许Student,Teacher,Worker继承Person

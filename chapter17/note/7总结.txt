@@ -1,0 +1,50 @@
+1. JDK新特性的概述
+    几个重要的版本：
+        ·JDK5 / JDK8：里程碑的版本
+        ·JDK9：开始每6个月发布一个新的版本
+        ·LST：JDK8、JDK11、JDK17
+
+    如何学习新特性：
+       > 角度1：新的语法规则
+       > 角度2：增加、过时、删除API
+       > 角度3：底层的优化、JVM参数的调整、GC的变化、内存结构(永久代 ---> 元空间)
+
+2.JDK8：lambda表达式
+    2.1 什么情况下可以使用lambda表达式
+        ·在给函数式接口提供实例时，都可以考虑使用lambda表达式
+        ·基本语法的使用(重要)
+
+    2.2 函数式接口
+        ·常见的函数式接口：Comparable / Runnable / java.util.function下定义的丰富的函数式接口
+            消费型接口   Consumer<T>     void accept(T t)
+            供给性接口   Supplier<T>     T get()
+            函数型接口   Function<T, R>     R apply(T t)
+            判断型接口   Predicate<T>    boolean test(T t)
+
+    2.3 方法引用、构造器引用、数组引用
+        ·方法引用、构造器引用、数组引用看作是lambda表达式的进一步刻画、表达
+        ·（掌握）方法引用、构造器引用、数组引用的使用场景
+
+3.JDK8：Stream API的使用
+    ·Stream关注于内存中的多个数据的运算
+    ·使用步骤：① Stream的实例化
+             ② 一系列的中间操作
+             ③ 终止操作
+
+4.JDK8之后的新特性：语法层面
+    · jShell
+    · try-catch结构的变化  try(...){}
+    · 局部变量的类型推断：var
+    · instanceof的模式匹配
+    · switch表达式、switch的模式匹配
+    · 文本块的使用："""文本块"""
+    · 新的引用数据类型：record(记录)
+    · 密封类：sealed class
+
+5.JDK8之后的新特性：其他
+    · Optional
+
+[面试题] 谈谈jdk8新特性
+    lambda表达式、Stream API
+    jdk7的对比：元空间、HashMap、新的日期时间API、接口变化等
+
