@@ -1,10 +1,12 @@
+package lambda;
+
 import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
 
 /**
- * ClassName:LambdaTest1
+ * ClassName:lambda.LambdaTest1
  * Description:
  *
  * @Author ZY
