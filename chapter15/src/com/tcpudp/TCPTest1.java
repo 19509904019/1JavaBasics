@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 /**
  * ClassName:TCPTest1
@@ -22,36 +23,19 @@ import java.net.Socket;
 public class TCPTest1 {
     // 客户端
     @Test
-    public void client() {
-        Socket socket = null;
-        OutputStream os = null;
-        try {
-            // 创建一个socket
-            InetAddress inet = InetAddress.getLocalHost(); // 声明ip地址
-            int port = 8980;  // 声明端口号
-            socket = new Socket(inet, port);
+    public void client() throws UnknownHostException {
 
-            // 发送数据
-            os = socket.getOutputStream();
+        InetAddress inet = InetAddress.getLocalHost(); // 声明ip地址
+        int port = 8980;  // 声明端口号
+        try (
+                // 创建一个socket
+                Socket socket = new Socket(inet, port);
+                // 发送数据
+                OutputStream os = socket.getOutputStream()
+        ) {
             os.write("你好，世界！".getBytes());
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            // 关闭socket、关闭流
-            try {
-                if (socket != null) {
-                    socket.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                if (os != null) {
-                    os.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+           e.printStackTrace();
         }
     }
 
@@ -59,7 +43,7 @@ public class TCPTest1 {
     @Test
     public void server() {
         ServerSocket serverSocket = null;
-        Socket socket = null;  // 阻塞式方法
+        Socket socket = null;
         InputStream is = null;
         try {
             // 1.创建一个ServerSocket
@@ -67,7 +51,7 @@ public class TCPTest1 {
             serverSocket = new ServerSocket(port);
 
             // 2.调用accept(),接收客户端Socket
-            socket = serverSocket.accept();
+            socket = serverSocket.accept(); // 阻塞式方法
 
             // 3.接受数据
             is = socket.getInputStream();
