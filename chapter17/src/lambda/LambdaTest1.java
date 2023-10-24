@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 public class LambdaTest1 {
     @Test
     public void test1() {
-        // 语法格式一：无参，无返回值
+        // 语法格式一：无参,无返回值
         Runnable r1 = new Runnable() {
             @Override
             public void run() {
