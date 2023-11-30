@@ -44,7 +44,7 @@ public class Dao<T> {
     public void getMap() {
         var entrySet = map.entrySet();
         for (var s : entrySet) {
-            System.out.println(s.getKey()+ "--->" + s.getValue());
+            System.out.println(s.getKey() + "--->" + s.getValue());
         }
     }
 }

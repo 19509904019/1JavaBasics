@@ -1,7 +1,7 @@
-1.Colleciton概述
+1.Collection概述
 
 2.常用方法
-    排序操作：
+        排序操作：
         - reverse(List):反转List中元素的顺序
         - shuffle(List):对List集合元素进行随机排序
         - sort(List):根据元素的自然顺序对指定List集合元素按升序排序

@@ -1,7 +1,6 @@
 package com.file.exer2;
 
 import java.io.File;
-import java.io.FilenameFilter;
 
 /**
  * ClassName:Exer02
@@ -32,12 +31,8 @@ public class Exer02 {
 
 
         // 方式2
-        String[] listFiles = file.list(new FilenameFilter() { // 即为子文件或子文件目录
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".jpg");
-            }
-        });
+        // 即为子文件或子文件目录
+        String[] listFiles = file.list((dir, name) -> name.endsWith(".jpg"));
 
         if(listFiles.length == 0){
             System.out.println("未找到后缀名为.jpg的文件！");

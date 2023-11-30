@@ -47,7 +47,7 @@
             Account account;
 
             public void setAccount(Account account){
-                this.Account = account;
+                this.account = account;
             }
         }
 

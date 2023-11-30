@@ -6,7 +6,7 @@
 
     比如：加载到内存中的Person类或String类或User类，都作为Class的一个一个实例
 
-        Class clazz1 = com.reflectexample.Person.class;
+        Class clazz1 = Person.class;
         Class clazz2 = String.class;
         Class clazz3 = User.class;
         Class clazz4 = Comparable.class;

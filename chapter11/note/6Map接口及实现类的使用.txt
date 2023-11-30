@@ -48,7 +48,7 @@
     > 要求：向TreeMap中添加的key必须是同一个类型的对象
 
 5.Hashtable与Properties的使用
-    Peoperties:是Hashtable的子类，其keyvalue都是String类型的，常用来处理属性文件
+    Properties:是Hashtable的子类，其key-value都是String类型的，常用来处理属性文件
 
 
 
