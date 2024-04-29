@@ -1,6 +1,6 @@
 public class Practice {
     // 划分
-    public int partition(int low, int high, int[] arr) {
+    private static int partition(int low, int high, int[] arr) {
         int pivot = arr[low];
         while (low < high) {
             while (low < high && arr[high] >= pivot)
@@ -17,7 +17,7 @@ public class Practice {
     }
 
     // 快排
-    public void quickSort(int low, int high, int[] arr) {
+    private static void quickSort(int low, int high, int[] arr) {
         if (low < high) {
             int position = partition(low, high, arr);
             quickSort(low, position - 1, arr);
@@ -26,13 +26,10 @@ public class Practice {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{49, 38, 65, 97, 76, 13, 27, 49};
-        Practice p = new Practice();
-        p.quickSort(0, arr.length - 1, arr);
-
-        for (int j : arr) {
-            System.out.print(j + "\t");
-
+        int[] arr = {49, 38, 65, 97, 76, 13, 27, 49};
+        quickSort(0, arr.length - 1, arr);
+        for (int num : arr) {
+            System.out.print(num + "\t");
         }
     }
 

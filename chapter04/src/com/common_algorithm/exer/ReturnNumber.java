@@ -47,8 +47,8 @@ public class ReturnNumber {
                     arr[i++][j] = n;
                 } else {
                     k = 3;
-                    j--;
                     i--;
+                    j--;
                 }
             }
             //向左赋值再向上

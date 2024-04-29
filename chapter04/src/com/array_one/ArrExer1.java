@@ -40,10 +40,10 @@ public class ArrExer1 {
 
         //3.输出学生成绩等级
         char[] level = {'A', 'B', 'C', 'D'};
-        for (int i = 0; i < studentScore.length; i++) {
+        for (double value : studentScore) {
             for (int j = 10; j <= 40; j += 10) {
-                if (studentScore[i] >= maxScore - j) {
-                    System.out.println("成绩 " + studentScore[i] + " 等级为" + level[j / 10 - 1]);
+                if (value >= maxScore - j) {
+                    System.out.println("成绩 " + value + " 等级为" + level[j / 10 - 1]);
                     break;
                 }
             }

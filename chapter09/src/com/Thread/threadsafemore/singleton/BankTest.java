@@ -92,6 +92,9 @@ class Bank {
 //    }
 
     // 实现线程安全方式3:相较于方式1和方式2效率更高。为了避免出现指令重排，需要将instance声明为volatile
+    // volatile:
+    //      可见性： 确保所有线程都能看到变量的最新值。
+    //      有序性： 禁止指令重排序优化，保证代码的执行顺序与程序代码的顺序一致。
     public static Bank getInstance() {  // 同步监视器，默认为Bank.class
         if (instance == null) {
             synchronized (Bank.class) {

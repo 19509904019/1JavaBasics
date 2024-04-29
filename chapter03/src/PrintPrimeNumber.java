@@ -12,13 +12,14 @@ public class PrintPrimeNumber {
         //第一种方法
         long start = System.currentTimeMillis();
         for(int i  = 2; i <= 100; i++){  //遍历100以内的自然数
-            int count = 0;
+            boolean flag = true;
             for(int j = i - 1; j >= 2; j--){
-                if(i % j == 0){  //条件判断
-                    count++;
+                if (i % j == 0) {  //条件判断
+                    flag = false;
+                    break;
                 }
             }
-            if(count == 0){
+            if(flag){
                 System.out.print(i + "\t");
             }
         }
