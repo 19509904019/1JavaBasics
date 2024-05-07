@@ -1,9 +1,6 @@
 package com.map.exer2;
 
-import com.map.exer1.SingerTest;
-
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -17,11 +14,11 @@ import java.util.Set;
 public class CityMapTest {
     public static void main(String[] args) {
         // 1.获取Map，并遍历map中的所有的key
-        Map map = CityMap.model;
-        Set provinces = map.keySet();
+        HashMap<String, Object> map = CityMap.model;
+        Set<String> provinces = map.keySet();
         // 遍历打印key值
-        for (Object province : provinces) {
-            System.out.print(province + "\t\t");
+        for (String provicne : provinces) {
+            System.out.println(provicne + "\t\t");
         }
         // 2.根据提示，从键盘获取省份值，判断此省份是否存在，如果存在遍历其value中的各个城市
         Scanner scan = new Scanner(System.in);
@@ -64,7 +61,7 @@ public class CityMapTest {
     }
 
     class CityMap {
-        public static Map model = new HashMap();
+        public static HashMap<String, Object> model = new HashMap<>();
 
         static {
             model.put("北京", new String[]{"北京"});

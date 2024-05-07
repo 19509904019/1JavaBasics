@@ -77,13 +77,13 @@ public class StringMethodTest1 {
         String str = "abcdefg";
         System.out.println(str.charAt(2));
 
-        char[] arr1 = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+        char[] arr1 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
         System.out.println(String.valueOf(arr1));
         System.out.println(String.valueOf(arr1,2,6));
 
         //与 String.valueOf()方法不同的是，copyValueOf()方法返回的字符串是通过拷贝字符数组的内容而不是共享同一字符数组
         char[] arr2 = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-        System.out.println(String.valueOf(arr2));
-        System.out.println(String.valueOf(arr2,2,6));
+        System.out.println(String.copyValueOf(arr2));
+        System.out.println(String.copyValueOf(arr2,2,6));
     }
 }

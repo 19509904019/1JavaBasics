@@ -30,9 +30,7 @@ public class TreeMapTest {
         Comparator comparator = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                if (o1 instanceof Product && o2 instanceof Product) {
-                    Product p1 = (Product) o1;
-                    Product p2 = (Product) o2;
+                if (o1 instanceof Product p1 && o2 instanceof Product p2) {
 
                     int value = p1.getName().compareTo(p2.getName());
                     if (value != 0) {
@@ -53,7 +51,7 @@ public class TreeMapTest {
         map.put(new Product("Tom", 45), 19);
         map.put(new Product("Tom", 35), 19);
 
-        Set entrySet = map.entrySet();  // Set存储键值对
+        Set entrySet = map.entrySet();// Set存储键值对
         for (Object entry : entrySet) {
             System.out.println(entry);
         }

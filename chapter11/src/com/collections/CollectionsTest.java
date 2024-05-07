@@ -32,9 +32,7 @@ public class CollectionsTest {
         Comparator comparator = new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
-                if (o1 instanceof Integer && o2 instanceof Integer) {
-                    Integer i1 = (Integer) o1;
-                    Integer i2 = (Integer) o2;
+                if (o1 instanceof Integer i1 && o2 instanceof Integer i2) {
 
                     return i2 - i1;
 
@@ -77,12 +75,12 @@ public class CollectionsTest {
 
     @Test
     public void test4() {
-        List list1 = new ArrayList();
+        List<Integer> list1 = new ArrayList<>();
         list1.add(34);
         list1.add(18);
         list1.add(25);
 
-        List list2 = Collections.unmodifiableList(list1);
+        List<Integer> list2 = Collections.unmodifiableList(list1);
 //        list2.add(20);  // 只能读不能写
         System.out.println(list2.get(0));
 

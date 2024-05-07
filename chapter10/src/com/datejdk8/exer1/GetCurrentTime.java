@@ -37,7 +37,7 @@ public class GetCurrentTime {
         LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println("你的生日为：" + localDateTime);
 
-            LocalDateTime localDateTime1 = localDateTime.plusDays(100);
+        LocalDateTime localDateTime1 = localDateTime.plusDays(100);
         System.out.println("100天后的日期为：" + localDateTime1);
     }
 }

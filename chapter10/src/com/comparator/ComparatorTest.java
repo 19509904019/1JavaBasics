@@ -27,10 +27,7 @@ public class ComparatorTest {
             // 如何判断两个对象o1,o2的大小，其标准就是此方法的方法体要编写的逻辑
             @Override
             public int compare(Object o1, Object o2) {
-                if (o1 instanceof Product && o2 instanceof Product) {
-                    Product p1 = (Product) o1;
-                    Product p2 = (Product) o2;
-
+                if (o1 instanceof Product p1 && o2 instanceof Product p2) {
                     return Double.compare(p1.getPrice(), p2.getPrice());
                 }
 

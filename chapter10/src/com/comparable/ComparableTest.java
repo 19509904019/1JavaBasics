@@ -17,14 +17,14 @@ import java.util.Comparator;
 public class ComparableTest {
     @Test
     public void test1() {
-        String[] arr = new String[]{"Tom", "Jerry", "Tony", "Rose", "Jack", "Lucy"};
+        String[] arr = {"Tom", "Jerry", "Tony", "Rose", "Jack", "Lucy"};
 
         Arrays.sort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
+        for (String s : arr) {
+            System.out.print(s + "\t");
         }
 
-        Comparator comparator = new Comparator() {
+        Comparator<Object> comparator = new Comparator<Object>() {
             @Override
             public int compare(Object o1, Object o2) {
                 if (o1 instanceof String str1 &&

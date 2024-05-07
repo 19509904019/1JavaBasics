@@ -112,7 +112,7 @@ public class StringUser {
         String s6 = "hello" + s2;
         String s7 = s1 + s2;
 
-        System.out.println(s3 == s5); // true
+        System.out.println(s3 == s5); // true final修饰后变成了常量
         System.out.println(s3 == s6); // true
         System.out.println(s3 == s7); // true
     }

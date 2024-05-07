@@ -10,18 +10,19 @@
  */
 public class DemoTest {
     public static void main(String[] args) {
-
+        int count = getMaxCommonSubstring("ab","abkkcadkabkebfkabkskab");
+        System.out.println(count);
 
     }
 
-    public int getMaxCommonSubstring(String str1, String str2) {
+    public static int getMaxCommonSubstring(String str1, String str2) {
         int count = 0;
-        if(str1.length() >= str2.length()){
-            int index = str1.indexOf(str2);
+        if(str1.length() <= str2.length()){
+            int index = str2.indexOf(str1);
 
             while(index >= 0){
                 count++;
-                index = str1.indexOf(str2,index + str2.length());
+                index = str2.indexOf(str1,index + str1.length());
             }
         }
         return count;
